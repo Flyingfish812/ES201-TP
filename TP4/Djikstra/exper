@@ -1,0 +1,34 @@
+Network/dijkstra processeur1
+sim_cycle                  70821925 # total simulation time in cycles
+sim_CPI                      1.2922 # cycles per instruction
+total_power            5131623027.9247 # total power per cycle
+avg_total_power_cycle       72.4581 # average total power per cycle
+avg_total_power_cycle_nofp_nod2      53.9293 # average total power per cycle
+avg_total_power_insn        93.3665 # average total power per insn
+avg_total_power_insn_nofp_nod2      69.4910 # average total power per insn
+total_power_cycle_cc1  1623526949.7587 # total power per cycle_cc1
+avg_total_power_cycle_cc1      22.9241 # average total power per cycle_cc1
+avg_total_power_insn_cc1      29.5390 # average total power per insn_cc1
+total_power_cycle_cc2  618413994.5882 # total power per cycle_cc2
+avg_total_power_cycle_cc2       8.7320 # average total power per cycle_cc2
+avg_total_power_insn_cc2      11.2516 # average total power per insn_cc2
+total_power_cycle_cc3  965691428.2757 # total power per cycle_cc3
+avg_total_power_cycle_cc3      13.6355 # average total power per cycle_cc3
+avg_total_power_insn_cc3      17.5701 # average total power per insn_cc3
+Network/dijkstra processeur2
+sim_cycle                  74199382 # total simulation time in cycles
+sim_CPI                      1.3539 # cycles per instruction
+total_power            5303378671.6942 # total power per cycle
+avg_total_power_cycle       71.4747 # average total power per cycle
+avg_total_power_cycle_nofp_nod2      52.9459 # average total power per cycle
+avg_total_power_insn        96.4931 # average total power per insn
+avg_total_power_insn_nofp_nod2      71.4786 # average total power per insn
+total_power_cycle_cc1  1553085421.5442 # total power per cycle_cc1
+avg_total_power_cycle_cc1      20.9312 # average total power per cycle_cc1
+avg_total_power_insn_cc1      28.2578 # average total power per insn_cc1
+total_power_cycle_cc2  533959959.3357 # total power per cycle_cc2
+avg_total_power_cycle_cc2       7.1963 # average total power per cycle_cc2
+avg_total_power_insn_cc2       9.7152 # average total power per insn_cc2
+total_power_cycle_cc3  905451363.7886 # total power per cycle_cc3
+avg_total_power_cycle_cc3      12.2030 # average total power per cycle_cc3
+avg_total_power_insn_cc3      16.4744 # average total power per insn_cc3

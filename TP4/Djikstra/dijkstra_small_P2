@@ -1,0 +1,189 @@
+Incorrectly built binary which accesses errno or h_errno directly. Needs to be fixed.
+sim-outorder: SimpleScalar/PISA Tool Set version 3.0 of September, 1998.
+Copyright (c) 1994-1998 by Todd M. Austin.  All Rights Reserved.
+
+
+Processor Parameters:
+Issue Width: 4
+Window Size: 16
+Number of Virtual Registers: 32
+Number of Physical Registers: 16
+Datapath Width: 64
+Total Power Consumption: 51.3351
+Branch Predictor Power Consumption: 4.76412  (9.66%)
+ branch target buffer power (W): 4.40936
+ local predict power (W): 0.0879711
+ global predict power (W): 0.0996078
+ chooser power (W): 0.0702439
+ RAS power (W): 0.0969383
+Rename Logic Power Consumption: 0.0831282  (0.168%)
+ Instruction Decode Power (W): 0.00399788
+ RAT decode_power (W): 0.031466
+ RAT wordline_power (W): 0.00699436
+ RAT bitline_power (W): 0.0406699
+ DCL Comparators (W): 0
+Instruction Window Power Consumption: 2.20432  (4.47%)
+ tagdrive (W): 0.0943488
+ tagmatch (W): 0.033695
+ Selection Logic (W): 0.0134217
+ decode_power (W): 0.0532503
+ wordline_power (W): 0.0844643
+ bitline_power (W): 1.92514
+Load/Store Queue Power Consumption: 0.96318  (1.95%)
+ tagdrive (W): 0.457232
+ tagmatch (W): 0.100774
+ decode_power (W): 0.00799577
+ wordline_power (W): 0.0150119
+ bitline_power (W): 0.382166
+Arch. Register File Power Consumption: 3.58482  (7.27%)
+ decode_power (W): 0.125864
+ wordline_power (W): 0.0844643
+ bitline_power (W): 3.37449
+Result Bus Power Consumption: 1.35593  (2.75%)
+Total Clock Power: 17.9077  (36.3%)
+Int ALU Power: 2.33007  (4.72%)
+FP ALU Power: 3.57026  (7.24%)
+Instruction Cache Power Consumption: 1.21026  (2.45%)
+ decode_power (W): 0.162764
+ wordline_power (W): 0.0491838
+ bitline_power (W): 0.678088
+ senseamp_power (W): 0.192
+ tagarray_power (W): 0.128222
+Itlb_power (W): 0.27086 (0.549%)
+Data Cache Power Consumption: 5.9115  (12%)
+ decode_power (W): 3.11792
+ wordline_power (W): 0.0378034
+ bitline_power (W): 0.886372
+ senseamp_power (W): 0.096
+ tagarray_power (W): 1.7734
+Dtlb_power (W): 0.931132 (1.89%)
+Level 2 Cache Power Consumption: 4.2478 (8.61%)
+ decode_power (W): 0.448295
+ wordline_power (W): 0.0430878
+ bitline_power (W): 3.0244
+ senseamp_power (W): 0.192
+ tagarray_power (W): 0.540011
+sim: command line: /usr/ensta/i386-linux/pack/simplescalar-2.0/sim-wattch-1.02/sim-wattch-1.02/sim-outorder -fetch:ifqsize 2 -decode:width 1 -issue:width 4 -issue:inorder true -res:ialu 2 -res:imult 1 -res:memport 2 -res:fpalu 1 -res:fpmult 1 -cache:il1 il1:128:64:1:l -cache:dl1 dl1:256:8:4:l dijkstra_small input.dat 
+
+sim: simulation started @ Fri Oct 15 17:39:00 2004, options follow:
+
+sim-outorder: This simulator implements a very detailed out-of-order issue
+superscalar processor with a two-level memory system and speculative
+execution support.  This simulator is a performance simulator, tracking the
+latency of all pipeline operations.
+
+# -config                     # load configuration from a file
+# -dumpconfig                 # dump configuration to a file
+# -h                    false # print help message    
+# -v                    false # verbose operation     
+# -d                    false # enable debug message  
+# -i                    false # start in Dlite debugger
+-seed                       1 # random number generator seed (0 for timer seed)
+# -q                    false # initialize and terminate immediately
+# -chkpt               <null> # restore EIO trace execution from <fname>
+# -redir:sim           <null> # redirect simulator output to file (non-interactive only)
+# -redir:prog          <null> # redirect simulated program output to file
+-nice                       0 # simulator scheduling priority
+-max:inst                   0 # maximum number of inst's to execute
+-fastfwd                    0 # number of insts skipped before timing starts
+# -ptrace              <null> # generate pipetrace, i.e., <fname|stdout|stderr> <range>
+-fetch:ifqsize              2 # instruction fetch queue size (in insts)
+-fetch:mplat                3 # extra branch mis-prediction latency
+-fetch:speed                1 # speed of front-end of machine relative to execution core
+-bpred                  bimod # branch predictor type {nottaken|taken|perfect|bimod|2lev|comb}
+-bpred:bimod     2048 # bimodal predictor config (<table size>)
+-bpred:2lev      1 1024 8 0 # 2-level predictor config (<l1size> <l2size> <hist_size> <xor>)
+-bpred:comb      1024 # combining predictor config (<meta_table_size>)
+-bpred:ras                  8 # return address stack size (0 for no return stack)
+-bpred:btb       512 4 # BTB config (<num_sets> <associativity>)
+# -bpred:spec_update       <null> # speculative predictors update in {ID|WB} (default non-spec)
+-decode:width               1 # instruction decode B/W (insts/cycle)
+-issue:width                4 # instruction issue B/W (insts/cycle)
+-issue:inorder           true # run pipeline with in-order issue
+-issue:wrongpath         true # issue instructions down wrong execution paths
+-commit:width               4 # instruction commit B/W (insts/cycle)
+-ruu:size                  16 # register update unit (RUU) size
+-lsq:size                   8 # load/store queue (LSQ) size
+-cache:dl1       dl1:256:8:4:l # l1 data cache config, i.e., {<config>|none}
+-cache:dl1lat               1 # l1 data cache hit latency (in cycles)
+-cache:dl2       ul2:1024:64:4:l # l2 data cache config, i.e., {<config>|none}
+-cache:dl2lat               6 # l2 data cache hit latency (in cycles)
+-cache:il1       il1:128:64:1:l # l1 inst cache config, i.e., {<config>|dl1|dl2|none}
+-cache:il1lat               1 # l1 instruction cache hit latency (in cycles)
+-cache:il2                dl2 # l2 instruction cache config, i.e., {<config>|dl2|none}
+-cache:il2lat               6 # l2 instruction cache hit latency (in cycles)
+-cache:flush            false # flush caches on system calls
+-cache:icompress        false # convert 64-bit inst addresses to 32-bit inst equivalents
+-mem:lat         18 2 # memory access latency (<first_chunk> <inter_chunk>)
+-mem:width                  8 # memory access bus width (in bytes)
+-tlb:itlb        itlb:16:4096:4:l # instruction TLB config, i.e., {<config>|none}
+-tlb:dtlb        dtlb:32:4096:4:l # data TLB config, i.e., {<config>|none}
+-tlb:lat                   30 # inst/data TLB miss latency (in cycles)
+-res:ialu                   2 # total number of integer ALU's available
+-res:imult                  1 # total number of integer multiplier/dividers available
+-res:memport                2 # total number of memory system ports available (to CPU)
+-res:fpalu                  1 # total number of floating point ALU's available
+-res:fpmult                 1 # total number of floating point multiplier/dividers available
+# -pcstat              <null> # profile stat(s) against text addr's (mult uses ok)
+-bugcompat              false # operate in backward-compatible bugs mode (for testing only)
+
+  Pipetrace range arguments are formatted as follows:
+
+    {{@|#}<start>}:{{@|#|+}<end>}
+
+  Both ends of the range are optional, if neither are specified, the entire
+  execution is traced.  Ranges that start with a `@' designate an address
+  range to be traced, those that start with an `#' designate a cycle count
+  range.  All other range values represent an instruction count range.  The
+  second argument, if specified with a `+', indicates a value relative
+  to the first argument, e.g., 1000:+100 == 1000:1100.  Program symbols may
+  be used in all contexts.
+
+    Examples:   -ptrace FOO.trc #0:#1000
+                -ptrace BAR.trc @2000:
+                -ptrace BLAH.trc :1500
+                -ptrace UXXE.trc :
+                -ptrace FOOBAR.trc @main:+278
+
+  Branch predictor configuration examples for 2-level predictor:
+    Configurations:   N, M, W, X
+      N   # entries in first level (# of shift register(s))
+      W   width of shift register(s)
+      M   # entries in 2nd level (# of counters, or other FSM)
+      X   (yes-1/no-0) xor history and address for 2nd level index
+    Sample predictors:
+      GAg     : 1, W, 2^W, 0
+      GAp     : 1, W, M (M > 2^W), 0
+      PAg     : N, W, 2^W, 0
+      PAp     : N, W, M (M == 2^(N+W)), 0
+      gshare  : 1, W, 2^W, 1
+  Predictor `comb' combines a bimodal and a 2-level predictor.
+
+  The cache config parameter <config> has the following format:
+
+    <name>:<nsets>:<bsize>:<assoc>:<repl>
+
+    <name>   - name of the cache being defined
+    <nsets>  - number of sets in the cache
+    <bsize>  - block size of the cache
+    <assoc>  - associativity of the cache
+    <repl>   - block replacement strategy, 'l'-LRU, 'f'-FIFO, 'r'-random
+
+    Examples:   -cache:dl1 dl1:4096:32:1:l
+                -dtlb dtlb:128:4096:32:r
+
+  Cache levels can be unified by pointing a level of the instruction cache
+  hierarchy at the data cache hiearchy using the "dl1" and "dl2" cache
+  configuration arguments.  Most sensible combinations are supported, e.g.,
+
+    A unified l2 cache (il2 is pointed at dl2):
+      -cache:il1 il1:128:64:1:l -cache:il2 dl2
+      -cache:dl1 dl1:256:32:1:l -cache:dl2 ul2:1024:64:2:l
+
+    Or, a fully unified cache hierarchy (il1 pointed at dl1):
+      -cache:il1 dl1
+      -cache:dl1 ul1:256:32:1:l -cache:dl2 ul2:1024:64:2:l
+
+
+
+sim: ** starting performance simulation **
