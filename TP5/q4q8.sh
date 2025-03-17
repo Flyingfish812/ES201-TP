@@ -3,9 +3,9 @@
 GEM5="/home/g/gbusnot/ES201/tools/TP5/gem5-stable"
 OUTPUT_DIR="results"
 TEST_BINARY="./test_omp"
-MATRIX_SIZE=32
+MATRIX_SIZE=16
 
-THREADS=(16)
+THREADS=(1 2 4 8 16)
 
 mkdir -p $OUTPUT_DIR
 
@@ -26,10 +26,10 @@ for NTHREADS in "${THREADS[@]}"; do
     mv m5out/stats.txt $OUTPUT_DIR/stats_${NTHREADS}.txt 2>/dev/null
 
     TICKS=$(grep "sim_ticks" $OUTPUT_DIR/stats_${NTHREADS}.txt | awk '{print $2}')
-    echo "$TICKS" >> $OUTPUT_DIR/q4.txt
+    echo "n=$NTHREADS : $TICKS" >> $OUTPUT_DIR/q4.txt
 
     INSTS=$(grep "sim_insts" $OUTPUT_DIR/stats_${NTHREADS}.txt | awk '{print $2}')
-    echo "$INSTS" >> $OUTPUT_DIR/q5.txt
+    echo "n=$NTHREADS : $INSTS" >> $OUTPUT_DIR/q5.txt
 
     if [[ -z "$TICKS" || -z "$INSTS" ]]; then
         echo "Error: Missing simulation results for $NTHREADS threads." >&2
@@ -41,10 +41,10 @@ for NTHREADS in "${THREADS[@]}"; do
 
     if [ "$NTHREADS" -eq 1 ]; then
         BASE_TICKS=$TICKS
-        echo "1.0" >> $OUTPUT_DIR/q6.txt
+        echo "n=$NTHREADS : 1.0" >> $OUTPUT_DIR/q6.txt
     else
         SPEEDUP=$(awk "BEGIN {print $BASE_TICKS / $TICKS}")
-        echo "$SPEEDUP" >> $OUTPUT_DIR/q6.txt
+        echo "n=$NTHREADS : $SPEEDUP" >> $OUTPUT_DIR/q6.txt
     fi
 done
 
