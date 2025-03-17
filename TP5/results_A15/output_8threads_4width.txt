@@ -1,0 +1,18 @@
+gem5 Simulator System.  http://gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 compiled Nov  4 2015 17:49:05
+gem5 started Mar 17 2025 15:53:22
+gem5 executing on salle
+command line: /home/g/gbusnot/ES201/tools/TP5/gem5-stable/build/ARM/gem5.fast /home/g/gbusnot/ES201/tools/TP5/gem5-stable/configs/example/se.py --cpu-type=detailed --caches --l2cache --l1d_size=32kB --l1i_size=32kB --l2_size=512kB --l1d_assoc=2 --l1i_assoc=2 --l2_assoc=16 --cacheline_size=64 -n 8 --o3-width 4 -c ./test_omp -o '8 16'
+
+Global frequency set at 1000000000000 ticks per second
+**** REAL SIMULATION ****
+info: Entering event queue @ 0.  Starting simulation...
+Setting OMP threads to 8
+Starting with row/col size=16
+A initialized
+B initialized
+Computing A*B with 8 threads
+Done
+Exiting @ tick 47234000 because target called exit()
